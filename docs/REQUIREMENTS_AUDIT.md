@@ -8,7 +8,6 @@ Audit date: 2026-09-25
 - [x] All prescribed architectural layers and files are present.
 - [x] `README.md` includes run instructions, a concise architecture explanation, personalization, the demo link, and a workflow trace.
 - [x] `demo/demo.mp4` is a 77-second narrated terminal demo showing Browse, Search, and Recommendations.
-- [x] A Chinese learning guide prepares the student to explain every layer and trace complete workflows.
 - [ ] The repository URL must still be entered manually in the class sheet under `Assignment No 2`.
 
 ## Required Technical Concepts

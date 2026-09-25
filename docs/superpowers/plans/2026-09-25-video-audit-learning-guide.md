@@ -51,11 +51,12 @@ Run: `ffprobe -v error -show_entries format=duration,size:stream=codec_name,code
 
 Expected: video and audio streams, 1280×720, short duration, and a GitHub-friendly size.
 
-### Task 3: Add the Repository Learning Guide
+### Task 3: Add the External Repository Learning Guide
 
 **Files:**
-- Create: `LEARNING_GUIDE.zh-CN.md`
-- Modify: `README.md`
+- Create: `/Users/zhekaili/Documents/1125/Lesson05/docs/intersections-library-guide/INTERSECTIONS_LIBRARY_GUIDE.md`
+- Create: `/Users/zhekaili/Documents/1125/Lesson05/docs/intersections-library-guide/INTERSECTIONS_LIBRARY_GUIDE.pdf`
+- Modify: `README.md` to remove the obsolete in-repository guide link
 
 - [x] **Step 1: Explain the assignment-to-code mapping**
 
@@ -69,9 +70,9 @@ Trace Add Book from `ui/main_menu.sh` through metadata and the data layer, and t
 
 Provide a reading order, safe commands, expected observations, and concise answers the student can explain without Codex.
 
-- [x] **Step 4: Link the guide from the README**
+- [x] **Step 4: Keep the repository English-only**
 
-Add a clearly visible Chinese learning-guide link without expanding the required short architecture and personalization sections.
+Keep the standalone guide with the course documents, remove the obsolete repository link, and verify that repository text and filenames contain no Chinese characters.
 
 ### Task 4: Audit and Publish
 
