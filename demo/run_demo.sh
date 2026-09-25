@@ -6,7 +6,8 @@ ROOT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 demo_dir=$(mktemp -d "${TMPDIR:-/tmp}/book-manager-demo.XXXXXX") || exit 1
 trap 'rm -rf "$demo_dir"' EXIT HUP INT TERM
 export BOOK_DB_FILE="$demo_dir/demo-library.csv"
-pause=${DEMO_PAUSE:-1}
+pause=${1:-${DEMO_PAUSE:-1}}
+agent_delay=${2:-${DEMO_AGENT_DELAY:-2}}
 
 command -v gum >/dev/null 2>&1 || { printf 'Error: Gum is required for the demo.\n' >&2; exit 1; }
 
@@ -34,7 +35,7 @@ $MANAGE search design | "$ROOT_DIR/ui/library_screen.sh"
 sleep "$pause"
 
 heading 'Three recommendation agents run in parallel'
-TEST_AGENT_DELAY=${DEMO_AGENT_DELAY:-2} "$ROOT_DIR/workflows/get_recommendations.sh" 'technology history psychology literature' |
+TEST_AGENT_DELAY=$agent_delay "$ROOT_DIR/workflows/get_recommendations.sh" 'technology history psychology literature' |
   "$ROOT_DIR/ui/recommendations_screen.sh"
 sleep "$pause"
 

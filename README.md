@@ -27,6 +27,8 @@ For a safe automated walkthrough that uses a temporary database:
 
 The demo browses the interdisciplinary starter shelf, searches it, and shows three recommendation strategies running in parallel. It never changes `data/books.csv`.
 
+To learn how every layer works and prepare to explain the project, read the [Chinese repository learning guide](LEARNING_GUIDE.zh-CN.md).
+
 ## Architecture
 
 ```text

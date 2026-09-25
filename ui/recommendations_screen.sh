@@ -18,11 +18,11 @@ awk -F '\t' '
     return length(value) > limit ? substr(value, 1, limit - 3) "..." : value
   }
   {
-    link = ($7 == "N/A" ? "N/A" : "openlibrary.org")
-    printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\n", $1, clip($2, 28), clip($3, 25), clip($4, 16), $5, clip($6, 48), link
+    link = ($7 == "N/A" ? "N/A" : "OpenLibrary")
+    printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\n", $1, clip($2, 23), clip($3, 19), clip($4, 15), $5, clip($6, 32), link
   }
 ' "$input" > "$display"
 
 gum table --print --separator $'\t' \
   --columns 'Score,Title,Author,Genre,Year,Why,Link' \
-  --widths '6,27,24,16,6,47,15' < "$display"
+  --widths '5,22,18,14,6,31,12' < "$display"

@@ -3,7 +3,8 @@
 
 set -u
 input=$(mktemp "${TMPDIR:-/tmp}/book-library-screen.XXXXXX") || exit 1
-trap 'rm -f "$input"' EXIT HUP INT TERM
+display=$(mktemp "${TMPDIR:-/tmp}/book-library-display.XXXXXX") || { rm -f "$input"; exit 1; }
+trap 'rm -f "$input" "$display"' EXIT HUP INT TERM
 cat > "$input"
 
 if [ ! -s "$input" ]; then
@@ -11,6 +12,17 @@ if [ ! -s "$input" ]; then
   exit 0
 fi
 
+# Keep full links in component output while using a compact label in the UI.
+awk -F '\t' '
+  function clip(value, limit) {
+    return length(value) > limit ? substr(value, 1, limit - 3) "..." : value
+  }
+  {
+    link = ($7 == "N/A" ? "N/A" : "OpenLibrary")
+    printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\n", clip($1, 28), clip($2, 21), clip($3, 17), $4, $5, $6, link
+  }
+' "$input" > "$display"
+
 gum table --print --separator $'\t' \
   --columns 'Title,Author,Genre,Year,Status,Rating,Link' \
-  --widths '28,20,16,6,13,6,26' < "$input"
+  --widths '27,20,16,6,13,6,12' < "$display"

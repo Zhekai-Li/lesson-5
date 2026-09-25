@@ -5,11 +5,12 @@ set -u
 ROOT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
 if [ "${1:-}" = '--demo' ]; then
-  exec "$ROOT_DIR/demo/run_demo.sh"
+  shift
+  exec "$ROOT_DIR/demo/run_demo.sh" "$@"
 fi
 
 if [ "$#" -ne 0 ]; then
-  printf 'Usage: ./app.sh [--demo]\n' >&2
+  printf 'Usage: ./app.sh [--demo [PAUSE [AGENT_DELAY]]]\n' >&2
   exit 2
 fi
 
