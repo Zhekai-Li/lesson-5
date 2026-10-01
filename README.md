@@ -1,10 +1,8 @@
 # Intersections Library
 
-Intersections Library is an offline personal book manager for readers who move between technology, history, psychology, science, and literature. It is built from small Bash programs connected by TSV streams, a single CSV data boundary, and a Gum terminal interface.
+## Quick Start
 
-## Run it
-
-Requirements: Bash 3.2 or newer and [Gum](https://github.com/charmbracelet/gum). On macOS:
+Requirements: Bash 3.2 or newer and [Gum](https://github.com/charmbracelet/gum). On macOS, install Gum, clone the repository, and start the interactive app:
 
 ```bash
 brew install gum
@@ -13,19 +11,56 @@ cd lesson-5
 ./app.sh
 ```
 
-Choose **Browse Library**, **Add Book**, **Search Library**, **Update Status**, **Update Rating**, or **Recommendations**. All metadata and recommendation data is bundled locally; the application does not need an API key, Codex, or a network connection.
+Run all commands from the project root—the directory that contains `app.sh`. For example, when using this project from the `Lesson05` workspace:
 
-For a safe automated walkthrough that uses a temporary database:
+```bash
+cd /Users/zhekaili/Documents/1125/Lesson05/ps02
+./app.sh
+```
+
+## Demo Videos — Two Versions
+
+This project includes **two separate demo videos** of the application:
+
+### 1. Zhekai Li's recorded demo
+
+[Watch the demo recorded and explained by Zhekai Li](demo/zhekai-li-recording/Zhekai_demo.mp4)
+
+This is the personal presentation recorded by **Zhekai Li**.
+
+### 2. AI-generated narration demo
+
+[Watch the AI-generated narration demo](demo/ai-generated-narration/demo.mp4)
+
+This version uses AI-generated narration for a 60–90 second terminal walkthrough. Its supporting materials are also included:
+
+- [AI narration script](demo/ai-generated-narration/narration.txt)
+- [Automated demo runner](demo/ai-generated-narration/run_demo.sh)
+
+The automated runner uses a temporary database and does not change `data/books.csv`. Run it from the project root with:
 
 ```bash
 ./app.sh --demo
 ```
 
-## Demo
+## Features
 
-[Watch the 60–90 second terminal demo](demo/demo.mp4)
+The main menu provides these features:
 
-The demo browses the interdisciplinary starter shelf, searches it, and shows three recommendation strategies running in parallel. It never changes `data/books.csv`.
+| Feature | What it does |
+|---|---|
+| **Browse Library** | View every book currently saved in the library. |
+| **Add Book** | Add a title and enrich it with bundled offline metadata. |
+| **Search Library** | Search across the saved book fields. |
+| **Update Status** | Mark a book as want-to-read, reading, completed, or paused. |
+| **Update Rating** | Give a saved book a rating from 1 through 5. |
+| **Recommendations** | Combine history, interests, and discovery suggestions. |
+
+All metadata and recommendation data is bundled locally; the app does not need an API key, Codex, or a network connection.
+
+Intersections Library is an offline personal book manager for readers who move between technology, history, psychology, science, and literature. It is built from small Bash programs connected by TSV streams, a single CSV data boundary, and a Gum terminal interface.
+
+Both demos show the Intersections Library experience. The automated AI-narrated walkthrough browses the interdisciplinary starter shelf, searches it, and shows three recommendation strategies running in parallel.
 
 ## Architecture
 
@@ -86,9 +121,14 @@ The starter shelf reflects an interdisciplinary reading path: *The Left Hand of 
 
 ## Test
 
+First enter the project root, then run the test script:
+
 ```bash
+cd /Users/zhekaili/Documents/1125/Lesson05/ps02
 ./tests/test.sh
 ```
+
+After cloning the GitHub repository elsewhere, replace the first line with the path to that cloned `lesson-5` directory.
 
 The dependency-free Bash suite covers quoted CSV round trips, CRUD validation, atomic updates, offline metadata, both search interfaces, recommendation refinement, concurrent execution, clean stdout/stderr separation, architectural boundaries, and syntax compatibility.
 

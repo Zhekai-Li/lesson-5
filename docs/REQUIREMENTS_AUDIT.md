@@ -7,7 +7,7 @@ Audit date: 2026-09-25
 - [x] Project is in the student's public GitHub repository: `https://github.com/Zhekai-Li/lesson-5`.
 - [x] All prescribed architectural layers and files are present.
 - [x] `README.md` includes run instructions, a concise architecture explanation, personalization, the demo link, and a workflow trace.
-- [x] `demo/demo.mp4` is a 77-second narrated terminal demo showing Browse, Search, and Recommendations.
+- [x] `demo/ai-generated-narration/demo.mp4` is a 77-second narrated terminal demo showing Browse, Search, and Recommendations.
 - [ ] The repository URL must still be entered manually in the class sheet under `Assignment No 2`.
 
 ## Required Technical Concepts

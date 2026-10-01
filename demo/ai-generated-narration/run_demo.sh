@@ -2,7 +2,7 @@
 # A non-interactive, isolated walkthrough suitable for recording.
 
 set -u
-ROOT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+ROOT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)
 demo_dir=$(mktemp -d "${TMPDIR:-/tmp}/book-manager-demo.XXXXXX") || exit 1
 trap 'rm -rf "$demo_dir"' EXIT HUP INT TERM
 export BOOK_DB_FILE="$demo_dir/demo-library.csv"

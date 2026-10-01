@@ -6,7 +6,7 @@ ROOT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
 if [ "${1:-}" = '--demo' ]; then
   shift
-  exec "$ROOT_DIR/demo/run_demo.sh" "$@"
+  exec "$ROOT_DIR/demo/ai-generated-narration/run_demo.sh" "$@"
 fi
 
 if [ "$#" -ne 0 ]; then

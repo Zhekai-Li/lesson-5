@@ -31,9 +31,9 @@ Expected: both commands produce no failures.
 ### Task 2: Rebuild the Narrated Demo
 
 **Files:**
-- Modify: `demo/narration.txt`
-- Replace: `demo/demo.mp4`
-- Verify: `demo/run_demo.sh`
+- Modify: `demo/ai-generated-narration/narration.txt`
+- Replace: `demo/ai-generated-narration/demo.mp4`
+- Verify: `demo/ai-generated-narration/run_demo.sh`
 
 - [x] **Step 1: Use operation-aligned narration**
 
@@ -45,9 +45,9 @@ Run `./app.sh --demo` in a large, uncluttered terminal view. Ensure the Browse, 
 
 - [x] **Step 3: Produce and verify the delivery file**
 
-Encode H.264 video plus AAC narration and replace `demo/demo.mp4`.
+Encode H.264 video plus AAC narration and replace `demo/ai-generated-narration/demo.mp4`.
 
-Run: `ffprobe -v error -show_entries format=duration,size:stream=codec_name,codec_type,width,height demo/demo.mp4`
+Run: `ffprobe -v error -show_entries format=duration,size:stream=codec_name,codec_type,width,height demo/ai-generated-narration/demo.mp4`
 
 Expected: video and audio streams, 1280×720, short duration, and a GitHub-friendly size.
 
