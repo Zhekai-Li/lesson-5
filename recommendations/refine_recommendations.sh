@@ -10,8 +10,8 @@ trap 'rm -rf "$work_dir"' EXIT HUP INT TERM
 cat > "$work_dir/candidates.tsv"
 $DB list > "$work_dir/library.tsv"
 
-awk -F '\t' '
-  FNR == NR {
+awk -F '\t' -v library_file="$work_dir/library.tsv" '
+  FILENAME == library_file {
     owned[tolower($1) SUBSEP tolower($2)] = 1
     next
   }

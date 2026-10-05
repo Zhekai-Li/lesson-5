@@ -26,10 +26,16 @@ SEARCH="$ROOT_DIR/books/search_books.sh"
 REFINE="$ROOT_DIR/recommendations/refine_recommendations.sh"
 RECOMMEND="$ROOT_DIR/workflows/get_recommendations.sh"
 
-printf '1..23\n'
+printf '1..24\n'
 
 $DB init
 assert_eq "$(sed -n '1p' "$BOOK_DB_FILE")" 'title,author,genre,year,status,rating,link' 'init creates the seven-column schema'
+
+empty_library_refined=$(printf '%s\n' \
+  $'92\tParable of the Sower\tOctavia E. Butler\tScience Fiction\t1993\tEmpty-library candidate\tlink' | $REFINE)
+assert_eq "$empty_library_refined" \
+  $'92\tParable of the Sower\tOctavia E. Butler\tScience Fiction\t1993\tEmpty-library candidate\tlink' \
+  'refinement returns candidates for an empty library'
 
 $DB add 'A "Quoted", Book' 'Doe, Jane' 'Literature' 2024 reading 5 'https://example.test/a,b'
 row=$($DB list)
